@@ -1,0 +1,11 @@
+1) git init                     OR    1) Initialize repo in source control
+2) git add .                    OR    2) click + in source control
+3) git commit -a -m "Message"   OR    3) type message and click on tick in source control
+4) add remote from source control 
+ -> click on three dots
+ -> click remote
+ -> then add remote
+ -> from github paste repo link
+ -> give name to remote (standard name origin)
+
+5) git push origin master
