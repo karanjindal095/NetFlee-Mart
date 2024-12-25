@@ -1,6 +1,7 @@
 <?php 
     include('../includes/connect.php');
-    include('../functions/common_function.php')
+    include('../functions/common_function.php');
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +22,7 @@
             padding: 1.5rem;
             padding-top: 2.5rem;
             position: relative;
+            margin-bottom: 10px;
             /* display: inline-block; */
         }
 
@@ -69,8 +71,25 @@
         .nav1Ul .nav-link:hover{
             color: #E50914;
         }
-        
 
+        .nav2 {
+            background-color: #1F1F1F;
+            /* padding: 10px 20px; */
+            border-bottom: 1px solid #333333; 
+            }
+
+        .nav2 .nav-link {
+            color: #B3B3B3; 
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+            font-size: 1rem; 
+            }
+
+        .nav2 .nav-link:hover,
+        .nav2 .nav-link:focus {
+            color: #E50914; 
+            }
+        
     </style>
 </head>
 <body>
@@ -99,6 +118,37 @@
           </ul>
         </div>
       </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-dark nav2">
+      <ul class="navbar-nav me-auto px-1 nav2Ul2">
+      <?php 
+          if(!isset($_SESSION['username'])){
+            echo "
+           <li class='nav-item'>
+            <a class='nav-link' href='#'>Welcome Guest</a>
+          </li>
+            ";
+            echo "
+            <li class='nav-item'>
+              <a class='nav-link' href='user_login.php'>Login</a>
+            </li>
+            ";
+          }
+          else{
+            echo "
+            <li class='nav-item'>
+              <a class='nav-link' href='#'>Welcome ".ucwords($_SESSION['username'])."</a>
+            </li>
+            ";
+            echo "
+            <li class='nav-item'>
+              <a class='nav-link' href='logout.php'>Logout</a>
+            </li>
+            ";
+          }
+        ?>
+      </ul>
     </nav>
 
     <div class="row d-flex align-items-center justify-content-center">
@@ -149,6 +199,15 @@
                 </form>
             </div>
         </div>
+
+        <!-- Last child -->
+        <?php 
+        include("../includes/footer.php");
+        ?>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 </html>
 <!-- php code -->
@@ -188,6 +247,7 @@
         $result_cart=mysqli_query($conn,$select_cart_items);
         $row_count=mysqli_num_rows($result_cart);
         if($row_count>0){
+            $_SESSION['username']=$user_username;
             echo "<script>alert('You have items in your Cart')</script>";
             echo "<script>window.open('checkout.php','_self')</script>";
         }

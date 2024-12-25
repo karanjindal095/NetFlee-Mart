@@ -1,5 +1,6 @@
 <?php 
   include("../includes/connect.php");
+  session_start();
 ?>
 
 <!DOCTYPE html>
@@ -159,7 +160,7 @@
               <a class="nav-link" href="../display_all.php">Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="users_area/user_registration.php">Register</a>
+              <a class="nav-link" href="user_registration.php">Register</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contact</a>
@@ -171,12 +172,32 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark nav2">
       <ul class="navbar-nav me-auto px-1 nav2Ul2">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Welcome Guest</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-        </li>
+      <?php 
+          if(!isset($_SESSION['username'])){
+            echo "
+           <li class='nav-item'>
+            <a class='nav-link' href='#'>Welcome Guest</a>
+          </li>
+            ";
+            echo "
+            <li class='nav-item'>
+              <a class='nav-link' href='user_login.php'>Login</a>
+            </li>
+            ";
+          }
+          else{
+            echo "
+            <li class='nav-item'>
+              <a class='nav-link' href='#'>Welcome ".ucwords($_SESSION['username'])."</a>
+            </li>
+            ";
+            echo "
+            <li class='nav-item'>
+              <a class='nav-link' href='logout.php'>Logout</a>
+            </li>
+            ";
+          }
+        ?>
       </ul>
     </nav>
 
@@ -196,7 +217,7 @@
                     include('user_login.php');
                 }
                 else{
-                    include('../payment.php');
+                    include('payment.php');
                 }
             
             ?>
