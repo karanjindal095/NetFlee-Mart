@@ -9,3 +9,6 @@
  -> give name to remote (standard name origin)(netfleemart)
 
 5) git push origin master
+git branch -M main
+git remote add origin https://github.com/karanjindal095/NetFlee-Mart.git
+git push -u origin main
