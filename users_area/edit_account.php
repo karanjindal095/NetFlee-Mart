@@ -21,8 +21,16 @@
         $user_mobile=$_POST['user_mobile'];
         $user_image=$_FILES['user_image']['name'];
         $user_image_tmp=$_FILES['user_image']['tmp_name'];
-        move_uploaded_file($user_image_tmp,"user_images/$user_image");
+        // move_uploaded_file($user_image_tmp,"user_images/$user_image");
 
+        if (empty($user_image)) {
+            $select_image_query = "SELECT user_image FROM `user_table` WHERE user_id = $update_id";
+            $image_result = mysqli_query($conn, $select_image_query);
+            $image_row = mysqli_fetch_assoc($image_result);
+            $user_image = $image_row['user_image'];
+        } else {
+            move_uploaded_file($user_image_tmp, "user_images/$user_image");
+        }
 
         // update query
         $update_data="Update `user_table` SET username='$username',user_email='$user_email',user_image='$user_image',user_address='$user_address',user_mobile='$user_mobile' where user_id= $update_id";

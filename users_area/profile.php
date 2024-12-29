@@ -247,11 +247,14 @@
             </ul>
 
         </div>
-        <div class="col-md-10">
+        <div class="col-md-10 text-center">
             <?php 
               get_order_details();
               if(isset($_GET['edit_account'])){
                 include('edit_account.php');
+              }
+              if(isset($_GET['my_orders'])){
+                include('user_orders.php');
               }
             ?>
         </div>
