@@ -1,6 +1,11 @@
+<?php 
+  include("../includes/connect.php");
+  include("../functions/common_function.php");
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -117,16 +122,6 @@
         <h3 class="text-center p-2">Manage Details</h3>
     </div>
 
-    <!-- <div class="bg-light">
-      <h3 class="text-center">Netflee Mart</h3>
-      <h3 class="logo-container">
-        <a href="../index.php">
-            <img src="../images/NetfleeLogo2.png" alt="Netflee Logo" class="responsive-logo">
-        </a>
-      </h3>
-      <p class="text-center" style="color:#FFFFFF; background-color: #000000ba">Admin Name</p>
-    </div> -->
-
     <div class="row">
         <div class="col-md-12 logo-container d-flex align-items-center">
             <h3 class="m-3">
@@ -137,7 +132,7 @@
 
             <div class="button text-center">
                 <button class="my-3 p-1 m-4 btnbg border-0 btnbgt"><a href="insert_product.php" class="nav-link text-light btnbg my-1 p-1">Insert Products</a></button>
-                <button class="p-1 m-2 btnbg border-0 btnbgt"><a href="#" class="nav-link text-light btnbg my-1 p-1">View Products</a></button>
+                <button class="p-1 m-2 btnbg border-0 btnbgt"><a href="index.php?view_products" class="nav-link text-light btnbg my-1 p-1">View Products</a></button>
                 <button class="p-1 m-2 btnbg border-0 btnbgt"><a href="index.php?insert_category" class="nav-link text-light btnbg my-1 p-1">Insert Categories</a></button>
                 <button class="p-1 m-2 btnbg border-0 btnbgt"><a href="#" class="nav-link text-light btnbg my-1 p-1">View Categories</a></button>
                 <button class="p-1 m-2 btnbg border-0 btnbgt"><a href="index.php?insert_brand" class="nav-link text-light btnbg my-1 p-1">Insert Brands</a></button>
@@ -159,12 +154,18 @@
             if(isset($_GET['insert_brand'])){
                 include('insert_brands.php');
             }
+            if(isset($_GET['view_products'])){
+                include('view_products.php');
+            }
+            if(isset($_GET['edit_products'])){
+                include('edit_products.php');
+            }
         ?>
     </div>
 
-      <div class="p-3 text-center footer" style="background-color: #141414;color:white;">
-      <p>All rights reserved &copy;- Designed by Karan Jindal 🧑‍💻</p>
-    </div>
+    <?php 
+      include("../includes/footer.php");
+    ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
