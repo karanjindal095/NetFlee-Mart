@@ -125,7 +125,7 @@
     <div class="row">
         <div class="col-md-12 logo-container d-flex align-items-center">
             <h3 class="m-3">
-                <a href="../index.php">
+                <a href="index.php">
                     <img src="../images/NetfleeLogo2.png" alt="Netflee Logo" class="responsive-logo">
                 </a>
             </h3>
@@ -134,9 +134,9 @@
                 <button class="my-3 p-1 m-4 btnbg border-0 btnbgt"><a href="insert_product.php" class="nav-link text-light btnbg my-1 p-1">Insert Products</a></button>
                 <button class="p-1 m-2 btnbg border-0 btnbgt"><a href="index.php?view_products" class="nav-link text-light btnbg my-1 p-1">View Products</a></button>
                 <button class="p-1 m-2 btnbg border-0 btnbgt"><a href="index.php?insert_category" class="nav-link text-light btnbg my-1 p-1">Insert Categories</a></button>
-                <button class="p-1 m-2 btnbg border-0 btnbgt"><a href="#" class="nav-link text-light btnbg my-1 p-1">View Categories</a></button>
+                <button class="p-1 m-2 btnbg border-0 btnbgt"><a href="index.php?view_categories" class="nav-link text-light btnbg my-1 p-1">View Categories</a></button>
                 <button class="p-1 m-2 btnbg border-0 btnbgt"><a href="index.php?insert_brand" class="nav-link text-light btnbg my-1 p-1">Insert Brands</a></button>
-                <button class="p-1 m-2 btnbg border-0 btnbgt"><a href="#" class="nav-link text-light btnbg my-1 p-1">View Brands</a></button>
+                <button class="p-1 m-2 btnbg border-0 btnbgt"><a href="index.php?view_brands" class="nav-link text-light btnbg my-1 p-1">View Brands</a></button>
                 <button class="p-1 m-2 btnbg border-0 btnbgt"><a href="#" class="nav-link text-light btnbg my-1 p-1">All Orders</a></button>
                 <button class="p-1 m-2 btnbg border-0 btnbgt"><a href="#" class="nav-link text-light btnbg my-1 p-1">All Payments</a></button>
                 <button class="p-1 m-2 btnbg border-0 btnbgt"><a href="#" class="nav-link text-light btnbg my-1 p-1">List Users</a></button>
@@ -159,6 +159,27 @@
             }
             if(isset($_GET['edit_products'])){
                 include('edit_products.php');
+            }
+            if(isset($_GET['delete_product'])){
+                include('delete_product.php');
+            }
+            if(isset($_GET['view_categories'])){
+                include('view_categories.php');
+            }
+            if(isset($_GET['view_brands'])){
+                include('view_brands.php');
+            }
+            if(isset($_GET['edit_category'])){
+                include('edit_category.php');
+            }
+            if(isset($_GET['edit_brand'])){
+                include('edit_brand.php');
+            }
+            if(isset($_GET['delete_category'])){
+                include('delete_category.php');
+            }
+            if(isset($_GET['delete_brand'])){
+                include('delete_brand.php');
             }
         ?>
     </div>
