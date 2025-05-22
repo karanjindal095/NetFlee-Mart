@@ -125,6 +125,32 @@
         width: 100px;
         object-fit: contain;
     }
+    
+     .sidenav {
+        background-color: #1F1F1F; 
+        }
+
+    /* Style for regular links */
+    .sidenav .nav-link {
+        color: #FFFFFF; 
+        }
+
+    /* Active link - change color to Netflix red */
+    .sidenav .nav-link.active {
+        color: #E50914;
+        }
+
+    /* Hover effect for links */
+    .sidenav .nav-link:hover {
+        background-color: #333333; 
+        color: #FFFFFF; 
+        }
+
+    /* Optional: Style for the 'Delivery Brands' section */
+    .sidenav .nav-item.bg {
+        background-color: #333333; 
+        background-color: #E50914; 
+        }
   </style>
 
 </head>
@@ -212,9 +238,9 @@
 
     <!-- fourth child -->
      <div class="row">
-        <div class="col-md-2">
-            <ul class="navbar-nav bg-secondary text-center" style="height: 100vh;">
-                <li class="nav-item bg-info">
+        <div class="col-md-2 sidenav">
+            <ul class="navbar-nav sidenavUl text-center" style="height: 100vh;">
+                <li class="nav-item bg" style="width:105%">
                     <a class="nav-link text-light" href="#"><h4>Your Profile</h4></a>
                 </li>
                 <?php 
